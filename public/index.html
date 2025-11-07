@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFS PersonalVPN - Secure & Private</title>
+
+  <!-- SFS VPN Theme Styles -->
+  <link rel="stylesheet" href="../config/sfs-vpn-globals.css">
+
+  <style>
+    /* Additional page-specific styles */
+    .dashboard-header {
+      height: var(--sfs-header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--sfs-space-xl);
+      background: var(--sfs-panel-bg);
+      backdrop-filter: blur(var(--sfs-panel-blur));
+      border-bottom: 1px solid var(--sfs-panel-border);
+    }
+
+    .main-content {
+      padding: var(--sfs-space-xl);
+      min-height: calc(100vh - var(--sfs-header-height));
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--sfs-grid-gap);
+      margin-bottom: var(--sfs-space-2xl);
+    }
+
+    .stat-card {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: var(--sfs-text-3xl);
+      font-weight: var(--sfs-weight-bold);
+      background: var(--sfs-gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: var(--sfs-text-sm);
+      color: var(--sfs-text);
+      margin-top: var(--sfs-space-sm);
+    }
+
+    .alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sfs-space-md);
+      padding: var(--sfs-space-md);
+      margin-bottom: var(--sfs-space-md);
+    }
+
+    .alert-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-title {
+      font-weight: var(--sfs-weight-semibold);
+      color: var(--sfs-alert);
+      margin-bottom: var(--sfs-space-xs);
+    }
+
+    .alert-message {
+      font-size: var(--sfs-text-sm);
+      color: var(--sfs-text);
+    }
+
+    .connection-status-large {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sfs-space-lg);
+      padding: var(--sfs-space-2xl);
+    }
+
+    .status-indicator {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--sfs-radius-round);
+      background: var(--sfs-gradient-gold);
+      box-shadow: var(--sfs-shadow-gold-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--sfs-text-4xl);
+    }
+
+    .preferences-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sfs-space-md);
+    }
+
+    .preference-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--sfs-space-md);
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: var(--sfs-radius-md);
+    }
+
+    .preference-label {
+      font-weight: var(--sfs-weight-medium);
+    }
+
+    .toggle-switch {
+      width: 48px;
+      height: 24px;
+      background: var(--sfs-brown);
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: background var(--sfs-transition-fast);
+    }
+
+    .toggle-switch.active {
+      background: var(--sfs-gold);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--sfs-white);
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform var(--sfs-transition-fast);
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(24px);
+    }
+
+    .chart-placeholder {
+      height: 200px;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: var(--sfs-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sfs-text);
+      font-size: var(--sfs-text-sm);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div style="display: flex; align-items: center; gap: var(--sfs-space-md);">
+      <h1 class="sfs-gold-text" style="font-size: var(--sfs-text-2xl); margin: 0;">SFS PersonalVPN</h1>
+      <span class="sfs-status-connected" style="font-size: var(--sfs-text-sm);">Connected</span>
+    </div>
+    <div style="display: flex; gap: var(--sfs-space-md);">
+      <button class="sfs-btn-ghost">Settings</button>
+      <button class="sfs-btn-primary">Disconnect</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Quick Stats -->
+    <div class="stats-grid">
+      <div class="sfs-glass-card stat-card">
+        <div class="stat-value">45ms</div>
+        <div class="stat-label">Latency</div>
+      </div>
+      <div class="sfs-glass-card stat-card">
+        <div class="stat-value">8.5 MB/s</div>
+        <div class="stat-label">Download Speed</div>
+      </div>
+      <div class="sfs-glass-card stat-card">
+        <div class="stat-value">2.3 MB/s</div>
+        <div class="stat-label">Upload Speed</div>
+      </div>
+      <div class="sfs-glass-card stat-card">
+        <div class="stat-value">98%</div>
+        <div class="stat-label">Connection Quality</div>
+      </div>
+    </div>
+
+    <!-- Main Dashboard Grid -->
+    <div class="sfs-dashboard-grid">
+      <!-- Connection Status -->
+      <div class="sfs-glass-card">
+        <h2 style="margin: 0 0 var(--sfs-space-lg) 0; color: var(--sfs-gold);">Connection Status</h2>
+        <div class="connection-status-large">
+          <div class="status-indicator">
+            <span>🛡️</span>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: var(--sfs-text-xl); font-weight: var(--sfs-weight-semibold); margin-bottom: var(--sfs-space-xs);">
+              Protected
+            </div>
+            <div style="font-size: var(--sfs-text-sm); color: var(--sfs-text);">
+              New York, USA
+            </div>
+          </div>
+          <button class="sfs-btn-ghost" style="width: 100%;">Change Server</button>
+        </div>
+      </div>
+
+      <!-- Security Alerts -->
+      <div class="sfs-security-alert">
+        <h2 style="margin: 0 0 var(--sfs-space-lg) 0; color: var(--sfs-alert);">🚨 Security Alerts</h2>
+        <div id="security-alerts">
+          <div class="alert-item">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+              <div class="alert-title">DNS Leak Detected</div>
+              <div class="alert-message">Your DNS queries may be visible to your ISP. Enable DNS leak protection in settings.</div>
+            </div>
+          </div>
+          <div class="alert-item">
+            <div class="alert-icon">ℹ️</div>
+            <div class="alert-content">
+              <div class="alert-title">WebRTC Warning</div>
+              <div class="alert-message">WebRTC may expose your real IP address. Consider disabling it in your browser.</div>
+            </div>
+          </div>
+        </div>
+        <button class="sfs-btn-alert" style="width: 100%; margin-top: var(--sfs-space-md);">
+          View All Alerts
+        </button>
+      </div>
+
+      <!-- Extended Analytics -->
+      <div class="sfs-analytics-card">
+        <h2 style="margin: 0 0 var(--sfs-space-lg) 0; color: var(--sfs-gold);">📊 Analytics</h2>
+
+        <div style="margin-bottom: var(--sfs-space-xl);">
+          <h3 style="font-size: var(--sfs-text-base); margin-bottom: var(--sfs-space-md); color: var(--sfs-text);">
+            Bandwidth Usage (Today)
+          </h3>
+          <div class="chart-placeholder">
+            Bandwidth Chart (Implement with Chart.js or similar)
+          </div>
+        </div>
+
+        <div style="margin-bottom: var(--sfs-space-xl);">
+          <h3 style="font-size: var(--sfs-text-base); margin-bottom: var(--sfs-space-md); color: var(--sfs-text);">
+            Connection Quality (Last Hour)
+          </h3>
+          <div class="chart-placeholder">
+            Quality Chart (Implement with Chart.js or similar)
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--sfs-space-md);">
+          <div>
+            <div style="font-size: var(--sfs-text-sm); color: var(--sfs-text); margin-bottom: var(--sfs-space-xs);">
+              Total Upload
+            </div>
+            <div style="font-size: var(--sfs-text-lg); font-weight: var(--sfs-weight-semibold); color: var(--sfs-gold);">
+              1.2 GB
+            </div>
+          </div>
+          <div>
+            <div style="font-size: var(--sfs-text-sm); color: var(--sfs-text); margin-bottom: var(--sfs-space-xs);">
+              Total Download
+            </div>
+            <div style="font-size: var(--sfs-text-lg); font-weight: var(--sfs-weight-semibold); color: var(--sfs-gold);">
+              4.8 GB
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Preferences -->
+      <div class="sfs-preferences-panel">
+        <div class="sfs-preferences-header">
+          <h2 style="margin: 0; color: var(--sfs-gold);">⚙️ Quick Settings</h2>
+        </div>
+
+        <div class="preferences-list">
+          <div class="preference-item">
+            <span class="preference-label">Auto-Connect</span>
+            <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+          </div>
+
+          <div class="preference-item">
+            <span class="preference-label">Kill Switch</span>
+            <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+
+          <div class="preference-item">
+            <span class="preference-label">DNS Leak Protection</span>
+            <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+
+          <div class="preference-item">
+            <span class="preference-label">Malware Protection</span>
+            <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+
+          <div class="preference-item">
+            <span class="preference-label">Ad Blocking</span>
+            <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+          </div>
+
+          <div class="preference-item">
+            <span class="preference-label">Security Alerts</span>
+            <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+        </div>
+
+        <button class="sfs-btn-primary" style="width: 100%; margin-top: var(--sfs-space-lg);">
+          Advanced Settings
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../src/security-alerts.js"></script>
+  <script src="../src/extended-analytics.js"></script>
+  <script src="../src/user-preferences.js"></script>
+
+  <script>
+    // Initialize systems
+    const securityAlerts = new SecurityAlertSystem();
+    const analytics = new ExtendedAnalytics();
+    const preferences = new UserPreferences();
+
+    // Start monitoring
+    securityAlerts.startMonitoring();
+    analytics.startTracking();
+
+    // Log current preferences
+    console.log('User Preferences:', preferences.getSummary());
+
+    // Subscribe to security alerts
+    securityAlerts.onAlert((alert) => {
+      console.log('Security Alert:', alert);
+      // Update UI with new alert
+    });
+
+    // Subscribe to analytics updates
+    analytics.subscribe((metrics) => {
+      console.log('Analytics Update:', metrics);
+      // Update UI with new metrics
+    });
+
+    // Subscribe to preference changes
+    preferences.onChange((event) => {
+      console.log('Preference Changed:', event);
+      // React to preference changes
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      securityAlerts.stopMonitoring();
+      analytics.stopTracking();
+    });
+  </script>
+</body>
+</html>

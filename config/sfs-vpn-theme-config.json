@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "name": "SFS PersonalVPN Design System",
+  "version": "1.0.0",
+  "description": "VPN-focused design tokens with brown backgrounds, black panels, and gold gradient accents",
+
+  "colors": {
+    "brand": {
+      "brown": {
+        "value": "#4B2E2E",
+        "description": "Primary background - warm brown"
+      },
+      "black": {
+        "value": "#0A0A0A",
+        "description": "Panel and card backgrounds - deep black"
+      },
+      "gold": {
+        "value": "#FFD700",
+        "description": "Primary accent - sparkling gold"
+      },
+      "goldLight": {
+        "value": "#FFED4E",
+        "description": "Light gold for gradient highlights"
+      },
+      "goldDark": {
+        "value": "#D4AF37",
+        "description": "Dark gold for gradient shadows"
+      },
+      "goldHover": {
+        "value": "#E6C200",
+        "description": "Gold hover state"
+      },
+      "beige": {
+        "value": "#F5F5DC",
+        "description": "Light neutral, text on dark backgrounds"
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "description": "Pure white for highlights"
+      },
+      "alert": {
+        "value": "#FF4444",
+        "description": "Security alert red"
+      },
+      "alertGlow": {
+        "value": "rgba(255, 68, 68, 0.4)",
+        "description": "Alert glow effect"
+      },
+      "success": {
+        "value": "#4CAF50",
+        "description": "Success green for secure connections"
+      }
+    },
+    "semantic": {
+      "primary": "#FFD700",
+      "primaryHover": "#E6C200",
+      "background": "#4B2E2E",
+      "surface": "#0A0A0A",
+      "text": "#F5F5DC",
+      "textHighlight": "#FFFFFF",
+      "border": "rgba(255, 215, 0, 0.2)",
+      "danger": "#FF4444",
+      "success": "#4CAF50"
+    }
+  },
+
+  "gradients": {
+    "goldPrimary": {
+      "value": "linear-gradient(135deg, #FFED4E 0%, #FFD700 50%, #D4AF37 100%)",
+      "description": "Primary gold gradient"
+    },
+    "goldSubtle": {
+      "value": "linear-gradient(135deg, rgba(255, 237, 78, 0.1) 0%, rgba(255, 215, 0, 0.2) 50%, rgba(212, 175, 55, 0.1) 100%)",
+      "description": "Subtle gold gradient overlay"
+    },
+    "goldGlow": {
+      "value": "radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%)",
+      "description": "Gold glow effect"
+    },
+    "alertGradient": {
+      "value": "linear-gradient(90deg, rgba(255, 68, 68, 0.8) 0%, rgba(255, 68, 68, 0.2) 100%)",
+      "description": "Alert warning gradient"
+    }
+  },
+
+  "glassmorphism": {
+    "card": {
+      "backdrop": {
+        "blur": "12px",
+        "description": "Standard backdrop blur for glass cards"
+      },
+      "background": {
+        "default": "rgba(10, 10, 10, 0.6)",
+        "hover": "rgba(10, 10, 10, 0.7)",
+        "active": "rgba(10, 10, 10, 0.8)",
+        "description": "Semi-transparent black backgrounds for cards"
+      },
+      "border": {
+        "color": "rgba(255, 215, 0, 0.2)",
+        "width": "1px",
+        "style": "solid",
+        "description": "Subtle gold-tinted borders"
+      },
+      "shadow": {
+        "default": "0 8px 32px 0 rgba(10, 10, 10, 0.5)",
+        "hover": "0 12px 48px 0 rgba(255, 215, 0, 0.2)",
+        "description": "Depth shadows with gold glow on hover"
+      }
+    },
+    "panel": {
+      "backdrop": {
+        "blur": "16px"
+      },
+      "background": "rgba(10, 10, 10, 0.8)",
+      "border": {
+        "color": "rgba(255, 215, 0, 0.3)",
+        "width": "1px"
+      }
+    }
+  },
+
+  "vpnFeatures": {
+    "securityAlert": {
+      "background": "rgba(255, 68, 68, 0.15)",
+      "border": "1px solid rgba(255, 68, 68, 0.4)",
+      "glow": "0 0 20px rgba(255, 68, 68, 0.3)",
+      "pulseAnimation": "pulse-alert 2s ease-in-out infinite"
+    },
+    "analyticsCard": {
+      "background": "rgba(10, 10, 10, 0.7)",
+      "border": "1px solid rgba(255, 215, 0, 0.25)",
+      "accentGradient": "linear-gradient(135deg, rgba(255, 237, 78, 0.1) 0%, rgba(255, 215, 0, 0.15) 100%)"
+    },
+    "preferencesPanel": {
+      "background": "rgba(10, 10, 10, 0.75)",
+      "headerGradient": "linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%)",
+      "switchTrack": "#4B2E2E",
+      "switchThumb": "#FFD700"
+    }
+  },
+
+  "layout": {
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px"
+    },
+    "borderRadius": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "2xl": "24px",
+      "round": "50%"
+    },
+    "shadows": {
+      "sm": "0 2px 8px rgba(10, 10, 10, 0.3)",
+      "md": "0 4px 16px rgba(10, 10, 10, 0.4)",
+      "lg": "0 8px 32px rgba(10, 10, 10, 0.5)",
+      "xl": "0 12px 48px rgba(10, 10, 10, 0.6)",
+      "goldGlow": "0 0 20px rgba(255, 215, 0, 0.3)",
+      "goldGlowStrong": "0 0 40px rgba(255, 215, 0, 0.5)",
+      "alertGlow": "0 0 20px rgba(255, 68, 68, 0.4)",
+      "inner": "inset 0 2px 8px rgba(10, 10, 10, 0.4)"
+    },
+    "dashboard": {
+      "gridGap": "24px",
+      "cardPadding": "24px",
+      "headerHeight": "72px",
+      "sidebarWidth": "280px",
+      "contentMaxWidth": "1400px"
+    }
+  },
+
+  "animations": {
+    "pulseAlert": {
+      "keyframes": {
+        "0%": { "opacity": "1", "transform": "scale(1)" },
+        "50%": { "opacity": "0.7", "transform": "scale(1.02)" },
+        "100%": { "opacity": "1", "transform": "scale(1)" }
+      },
+      "duration": "2s",
+      "easing": "ease-in-out",
+      "iteration": "infinite"
+    },
+    "goldShimmer": {
+      "keyframes": {
+        "0%": { "background-position": "0% 50%" },
+        "50%": { "background-position": "100% 50%" },
+        "100%": { "background-position": "0% 50%" }
+      },
+      "duration": "3s",
+      "easing": "ease",
+      "iteration": "infinite"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "primary": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+      "monospace": "'Fira Code', 'Courier New', monospace"
+    },
+    "fontSize": {
+      "xs": "12px",
+      "sm": "14px",
+      "base": "16px",
+      "lg": "18px",
+      "xl": "20px",
+      "2xl": "24px",
+      "3xl": "30px",
+      "4xl": "36px"
+    },
+    "fontWeight": {
+      "normal": "400",
+      "medium": "500",
+      "semibold": "600",
+      "bold": "700"
+    },
+    "lineHeight": {
+      "tight": "1.2",
+      "normal": "1.5",
+      "relaxed": "1.75"
+    }
+  },
+
+  "breakpoints": {
+    "mobile": "640px",
+    "tablet": "768px",
+    "desktop": "1024px",
+    "wide": "1280px",
+    "ultrawide": "1536px"
+  }
+}

@@ -1,0 +1,405 @@
+/**
+ * SFS PersonalVPN Design System
+ * Global CSS Variables & Utilities
+ * Version 1.0.0
+ *
+ * Brown background (#4B2E2E), Black panels (#0A0A0A), Gold gradient accents
+ * Import this file at the root of your VPN application
+ */
+
+:root {
+  /* ===== Brand Colors ===== */
+  --sfs-brown: #4B2E2E;
+  --sfs-black: #0A0A0A;
+  --sfs-gold: #FFD700;
+  --sfs-gold-light: #FFED4E;
+  --sfs-gold-dark: #D4AF37;
+  --sfs-gold-hover: #E6C200;
+  --sfs-beige: #F5F5DC;
+  --sfs-white: #FFFFFF;
+  --sfs-alert: #FF4444;
+  --sfs-success: #4CAF50;
+
+  /* ===== Semantic Colors ===== */
+  --sfs-primary: var(--sfs-gold);
+  --sfs-primary-hover: var(--sfs-gold-hover);
+  --sfs-background: var(--sfs-brown);
+  --sfs-surface: var(--sfs-black);
+  --sfs-text: var(--sfs-beige);
+  --sfs-text-highlight: var(--sfs-white);
+  --sfs-border: rgba(255, 215, 0, 0.2);
+  --sfs-danger: var(--sfs-alert);
+
+  /* ===== Gradients ===== */
+  --sfs-gradient-gold: linear-gradient(135deg, #FFED4E 0%, #FFD700 50%, #D4AF37 100%);
+  --sfs-gradient-gold-subtle: linear-gradient(135deg, rgba(255, 237, 78, 0.1) 0%, rgba(255, 215, 0, 0.2) 50%, rgba(212, 175, 55, 0.1) 100%);
+  --sfs-gradient-gold-glow: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  --sfs-gradient-alert: linear-gradient(90deg, rgba(255, 68, 68, 0.8) 0%, rgba(255, 68, 68, 0.2) 100%);
+  --sfs-gradient-analytics: linear-gradient(135deg, rgba(255, 237, 78, 0.1) 0%, rgba(255, 215, 0, 0.15) 100%);
+  --sfs-gradient-preferences: linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
+
+  /* ===== Glassmorphism - Card ===== */
+  --sfs-glass-blur: 12px;
+  --sfs-glass-bg: rgba(10, 10, 10, 0.6);
+  --sfs-glass-bg-hover: rgba(10, 10, 10, 0.7);
+  --sfs-glass-bg-active: rgba(10, 10, 10, 0.8);
+  --sfs-glass-border: rgba(255, 215, 0, 0.2);
+  --sfs-glass-shadow: 0 8px 32px 0 rgba(10, 10, 10, 0.5);
+  --sfs-glass-shadow-hover: 0 12px 48px 0 rgba(255, 215, 0, 0.2);
+
+  /* ===== Glassmorphism - Panel ===== */
+  --sfs-panel-blur: 16px;
+  --sfs-panel-bg: rgba(10, 10, 10, 0.8);
+  --sfs-panel-border: rgba(255, 215, 0, 0.3);
+
+  /* ===== VPN Feature Colors ===== */
+  --sfs-alert-bg: rgba(255, 68, 68, 0.15);
+  --sfs-alert-border: rgba(255, 68, 68, 0.4);
+  --sfs-alert-glow: rgba(255, 68, 68, 0.3);
+  --sfs-analytics-bg: rgba(10, 10, 10, 0.7);
+  --sfs-analytics-border: rgba(255, 215, 0, 0.25);
+  --sfs-preferences-bg: rgba(10, 10, 10, 0.75);
+
+  /* ===== Spacing ===== */
+  --sfs-space-xs: 4px;
+  --sfs-space-sm: 8px;
+  --sfs-space-md: 16px;
+  --sfs-space-lg: 24px;
+  --sfs-space-xl: 32px;
+  --sfs-space-2xl: 48px;
+  --sfs-space-3xl: 64px;
+
+  /* ===== Border Radius ===== */
+  --sfs-radius-sm: 4px;
+  --sfs-radius-md: 8px;
+  --sfs-radius-lg: 12px;
+  --sfs-radius-xl: 16px;
+  --sfs-radius-2xl: 24px;
+  --sfs-radius-round: 50%;
+
+  /* ===== Shadows ===== */
+  --sfs-shadow-sm: 0 2px 8px rgba(10, 10, 10, 0.3);
+  --sfs-shadow-md: 0 4px 16px rgba(10, 10, 10, 0.4);
+  --sfs-shadow-lg: 0 8px 32px rgba(10, 10, 10, 0.5);
+  --sfs-shadow-xl: 0 12px 48px rgba(10, 10, 10, 0.6);
+  --sfs-shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
+  --sfs-shadow-gold-strong: 0 0 40px rgba(255, 215, 0, 0.5);
+  --sfs-shadow-alert: 0 0 20px rgba(255, 68, 68, 0.4);
+  --sfs-shadow-inner: inset 0 2px 8px rgba(10, 10, 10, 0.4);
+
+  /* ===== Dashboard Layout ===== */
+  --sfs-grid-gap: 24px;
+  --sfs-card-padding: 24px;
+  --sfs-header-height: 72px;
+  --sfs-sidebar-width: 280px;
+  --sfs-content-max-width: 1400px;
+
+  /* ===== Transitions ===== */
+  --sfs-transition-fast: 150ms;
+  --sfs-transition-normal: 250ms;
+  --sfs-transition-slow: 350ms;
+  --sfs-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===== Typography ===== */
+  --sfs-font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --sfs-font-mono: 'Fira Code', 'Courier New', monospace;
+
+  --sfs-text-xs: 12px;
+  --sfs-text-sm: 14px;
+  --sfs-text-base: 16px;
+  --sfs-text-lg: 18px;
+  --sfs-text-xl: 20px;
+  --sfs-text-2xl: 24px;
+  --sfs-text-3xl: 30px;
+  --sfs-text-4xl: 36px;
+
+  --sfs-weight-normal: 400;
+  --sfs-weight-medium: 500;
+  --sfs-weight-semibold: 600;
+  --sfs-weight-bold: 700;
+
+  --sfs-leading-tight: 1.2;
+  --sfs-leading-normal: 1.5;
+  --sfs-leading-relaxed: 1.75;
+}
+
+/* ===== Base Styles ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--sfs-font-primary);
+  font-size: var(--sfs-text-base);
+  line-height: var(--sfs-leading-normal);
+  color: var(--sfs-text);
+  background-color: var(--sfs-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Utility Classes ===== */
+
+/* Glass Card */
+.sfs-glass-card {
+  background: var(--sfs-glass-bg);
+  backdrop-filter: blur(var(--sfs-glass-blur));
+  -webkit-backdrop-filter: blur(var(--sfs-glass-blur));
+  border: 1px solid var(--sfs-glass-border);
+  border-radius: var(--sfs-radius-lg);
+  box-shadow: var(--sfs-glass-shadow);
+  padding: var(--sfs-card-padding);
+  transition: all var(--sfs-transition-normal) var(--sfs-ease-smooth);
+}
+
+.sfs-glass-card:hover {
+  background: var(--sfs-glass-bg-hover);
+  box-shadow: var(--sfs-glass-shadow-hover);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.sfs-glass-card:active {
+  background: var(--sfs-glass-bg-active);
+}
+
+/* Glass Panel */
+.sfs-glass-panel {
+  background: var(--sfs-panel-bg);
+  backdrop-filter: blur(var(--sfs-panel-blur));
+  -webkit-backdrop-filter: blur(var(--sfs-panel-blur));
+  border: 1px solid var(--sfs-panel-border);
+  border-radius: var(--sfs-radius-xl);
+  box-shadow: var(--sfs-shadow-lg);
+  padding: var(--sfs-space-xl);
+}
+
+/* Security Alert Card */
+.sfs-security-alert {
+  background: var(--sfs-alert-bg);
+  border: 1px solid var(--sfs-alert-border);
+  border-radius: var(--sfs-radius-lg);
+  box-shadow: 0 0 20px var(--sfs-alert-glow);
+  padding: var(--sfs-card-padding);
+  animation: pulse-alert 2s ease-in-out infinite;
+}
+
+@keyframes pulse-alert {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+/* Analytics Card */
+.sfs-analytics-card {
+  background: var(--sfs-analytics-bg);
+  border: 1px solid var(--sfs-analytics-border);
+  border-radius: var(--sfs-radius-lg);
+  padding: var(--sfs-card-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.sfs-analytics-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--sfs-gradient-analytics);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.sfs-analytics-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Preferences Panel */
+.sfs-preferences-panel {
+  background: var(--sfs-preferences-bg);
+  backdrop-filter: blur(var(--sfs-panel-blur));
+  -webkit-backdrop-filter: blur(var(--sfs-panel-blur));
+  border: 1px solid var(--sfs-panel-border);
+  border-radius: var(--sfs-radius-xl);
+  padding: var(--sfs-space-xl);
+}
+
+.sfs-preferences-header {
+  background: var(--sfs-gradient-preferences);
+  padding: var(--sfs-space-md);
+  margin: calc(var(--sfs-space-xl) * -1) calc(var(--sfs-space-xl) * -1) var(--sfs-space-lg);
+  border-radius: var(--sfs-radius-xl) var(--sfs-radius-xl) 0 0;
+}
+
+/* Gold Gradient Text */
+.sfs-gold-text {
+  background: var(--sfs-gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gold-shimmer 3s ease infinite;
+}
+
+@keyframes gold-shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Button - Primary */
+.sfs-btn-primary {
+  background: var(--sfs-gradient-gold);
+  color: var(--sfs-black);
+  border: none;
+  border-radius: var(--sfs-radius-md);
+  padding: var(--sfs-space-sm) var(--sfs-space-lg);
+  font-weight: var(--sfs-weight-semibold);
+  cursor: pointer;
+  transition: all var(--sfs-transition-fast) var(--sfs-ease-smooth);
+  box-shadow: var(--sfs-shadow-md);
+}
+
+.sfs-btn-primary:hover {
+  box-shadow: var(--sfs-shadow-gold);
+  transform: translateY(-2px);
+}
+
+.sfs-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--sfs-shadow-sm);
+}
+
+/* Button - Ghost */
+.sfs-btn-ghost {
+  background: transparent;
+  color: var(--sfs-gold);
+  border: 1px solid var(--sfs-gold);
+  border-radius: var(--sfs-radius-md);
+  padding: var(--sfs-space-sm) var(--sfs-space-lg);
+  font-weight: var(--sfs-weight-medium);
+  cursor: pointer;
+  transition: all var(--sfs-transition-fast) var(--sfs-ease-smooth);
+}
+
+.sfs-btn-ghost:hover {
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: var(--sfs-shadow-gold);
+}
+
+/* Button - Alert */
+.sfs-btn-alert {
+  background: var(--sfs-alert);
+  color: var(--sfs-white);
+  border: none;
+  border-radius: var(--sfs-radius-md);
+  padding: var(--sfs-space-sm) var(--sfs-space-lg);
+  font-weight: var(--sfs-weight-semibold);
+  cursor: pointer;
+  transition: all var(--sfs-transition-fast) var(--sfs-ease-smooth);
+  box-shadow: var(--sfs-shadow-alert);
+}
+
+.sfs-btn-alert:hover {
+  background: #FF5555;
+  box-shadow: 0 0 30px var(--sfs-alert-glow);
+}
+
+/* Dashboard Grid */
+.sfs-dashboard-grid {
+  display: grid;
+  gap: var(--sfs-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: var(--sfs-content-max-width);
+  margin: 0 auto;
+  padding: var(--sfs-space-lg);
+}
+
+/* Status Indicators */
+.sfs-status-connected {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sfs-space-sm);
+  color: var(--sfs-success);
+}
+
+.sfs-status-connected::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--sfs-radius-round);
+  background: var(--sfs-success);
+  box-shadow: 0 0 10px var(--sfs-success);
+}
+
+.sfs-status-disconnected {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sfs-space-sm);
+  color: var(--sfs-alert);
+}
+
+.sfs-status-disconnected::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--sfs-radius-round);
+  background: var(--sfs-alert);
+  box-shadow: 0 0 10px var(--sfs-alert);
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  :root {
+    --sfs-card-padding: 16px;
+    --sfs-grid-gap: 16px;
+    --sfs-header-height: 64px;
+  }
+
+  .sfs-dashboard-grid {
+    grid-template-columns: 1fr;
+    padding: var(--sfs-space-md);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sfs-brown);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sfs-black);
+  border-radius: var(--sfs-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sfs-gold);
+}
+
+/* Selection */
+::selection {
+  background: var(--sfs-gold);
+  color: var(--sfs-black);
+}
+
+::-moz-selection {
+  background: var(--sfs-gold);
+  color: var(--sfs-black);
+}
