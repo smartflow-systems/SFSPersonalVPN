@@ -9,7 +9,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "serve": "python3 -m http.server 8080 --directory public",
-    "test": "echo 'Tests to be implemented' && exit 0"
+    "test": "echo 'Tests to be implemented' && exit 0",
+    "sync": "bash scripts/auto-sync.sh",
+    "pull": "git pull --no-edit",
+    "push": "git push",
+    "auto-commit": "git add . && git commit -m 'chore: auto-commit [Auto-Sync]' || true",
+    "sync-all": "npm run auto-commit && npm run sync"
   },
   "keywords": [
     "vpn",
