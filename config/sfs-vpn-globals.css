@@ -3,17 +3,17 @@
  * Global CSS Variables & Utilities
  * Version 1.0.0
  *
- * Brown background (#4B2E2E), Black panels (#0A0A0A), Gold gradient accents
+ * Brown background (#3B2F2F), Black panels (#0A0A0A), Gold gradient accents
  * Import this file at the root of your VPN application
  */
 
 :root {
   /* ===== Brand Colors ===== */
-  --sfs-brown: #4B2E2E;
+  --sfs-brown: #3B2F2F;
   --sfs-black: #0A0A0A;
   --sfs-gold: #FFD700;
   --sfs-gold-light: #FFED4E;
-  --sfs-gold-dark: #D4AF37;
+  --sfs-gold-dark: #FFD700;
   --sfs-gold-hover: #E6C200;
   --sfs-beige: #F5F5DC;
   --sfs-white: #FFFFFF;
@@ -31,7 +31,7 @@
   --sfs-danger: var(--sfs-alert);
 
   /* ===== Gradients ===== */
-  --sfs-gradient-gold: linear-gradient(135deg, #FFED4E 0%, #FFD700 50%, #D4AF37 100%);
+  --sfs-gradient-gold: linear-gradient(135deg, #FFED4E 0%, #FFD700 50%, #FFD700 100%);
   --sfs-gradient-gold-subtle: linear-gradient(135deg, rgba(255, 237, 78, 0.1) 0%, rgba(255, 215, 0, 0.2) 50%, rgba(212, 175, 55, 0.1) 100%);
   --sfs-gradient-gold-glow: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
   --sfs-gradient-alert: linear-gradient(90deg, rgba(255, 68, 68, 0.8) 0%, rgba(255, 68, 68, 0.2) 100%);
